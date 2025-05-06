@@ -1,0 +1,255 @@
+/* public/css/style.css */
+:root {
+    --primary-color: #007bff; /* Bleu Bootstrap-like */
+    --secondary-color: #6c757d; /* Gris secondaire */
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --font-family: 'Arial', sans-serif;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: var(--dark-gray);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-color);
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    width: 90%;
+}
+
+section {
+    margin-bottom: 40px;
+    background: #fff;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h3 {
+    color: var(--dark-gray);
+}
+
+/* Tool Cards Styling */
+#tools-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tool-card, .resource-card {
+    background: #fff; /* Gardé blanc pour le contraste avec la section */
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tool-card:hover, .resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.tool-icon {
+    width: 50px; /* Ajustez selon vos icônes */
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.tool-card h3, .resource-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.tool-card p, .resource-card p {
+    font-size: 0.95em;
+    color: #555;
+    min-height: 60px; /* Pour aligner les boutons */
+}
+
+button, .resource-link {
+    display: inline-block;
+    background: var(--success-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+button:hover:not(:disabled), .resource-link:hover {
+    background: #1e7e34; /* Darker green */
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Tool Display Area Styling */
+#tool-display-area {
+    background: #fff;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top:30px; /* Pour le séparer des cartes d'outils si affiché en dessous */
+}
+
+#tool-display-area .tool-content {
+    border: none; /* Le conteneur #tool-display-area a déjà une bordure/ombre */
+}
+
+#tool-display-area .tool-content h2 { /* Titre spécifique de l'outil */
+    text-align: center;
+    color: var(--dark-gray);
+    border-bottom: none;
+}
+
+/* Basic Form Styling for Tools */
+.tool-content form div {
+    margin-bottom: 15px;
+}
+.tool-content form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #444;
+}
+
+.tool-content form input[type="number"],
+.tool-content form input[type="text"],
+.tool-content form select {
+    width: calc(100% - 24px); /* padding + border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.tool-content form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+
+.tool-content form button {
+    display: block;
+    width: auto;
+    margin: 20px auto 0 auto; /* Centrer le bouton */
+}
+
+#rateResults, #taxResults /* etc. */ {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: var(--light-gray);
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+}
+
+#rateResults p, #taxResults p {
+    font-size: 1.1em;
+    color: var(--dark-gray);
+}
+#rateResults span, #taxResults span {
+    font-weight: bold;
+    color: var(--success-color);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--dark-gray);
+    color: #aaa;
+    margin-top: auto; /* Pousse le footer en bas */
+}
+footer p {
+    margin: 5px 0;
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    main {
+        width: 95%;
+        padding: 10px;
+    }
+    .tool-card p, .resource-card p {
+        min-height: auto; /* Pas besoin de forcer la hauteur sur mobile */
+    }
+}
