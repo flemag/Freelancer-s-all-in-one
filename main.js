@@ -36,7 +36,8 @@ function showTool(toolName) {
     let attachListenersFunction = null;
 
     // Masquer les résultats précédents si un autre outil était affiché
-    const previousResults = toolDisplayArea.querySelector('#rateResults, #taxResults'); // Ajoutez d'autres ID de résultats ici
+    // *** METTEZ À JOUR CETTE LIGNE ***
+    const previousResults = toolDisplayArea.querySelector('#rateResults, #taxResults, #budgetResults'); // Ajoutez les ID des zones de résultats ici (j'ajoute aussi budgetResults par anticipation)
     if (previousResults) {
         previousResults.style.display = 'none';
     }
@@ -55,12 +56,13 @@ function showTool(toolName) {
             toolHTML = getRateCalculatorHTML(); // Fonction de rate-calculator.js
             attachListenersFunction = attachRateCalculatorListeners;
             break;
+        // *** AJOUTEZ CE CAS ***
         case 'tax-estimator':
-            toolHTML = `<div class="tool-content"><h2>Estimateur d'Impôts</h2><p>Cet outil est en cours de développement. Revenez bientôt !</p></div>`;
-            // attachListenersFunction = attachTaxEstimatorListeners; // Quand il sera prêt
+            toolHTML = getTaxEstimatorHTML(); // Appel de la nouvelle fonction
+            attachListenersFunction = attachTaxEstimatorListeners; // Attachement des nouveaux listeners
             break;
         case 'project-budget':
-            toolHTML = `<div class="tool-content"><h2>Outil de Budgeting pour Projets</h2><p>Cet outil est en cours de développement. Revenez bientôt !</p></div>`;
+            toolHTML = `<div class="tool-content" id="project-budget-tool"><h2>Outil de Budgeting pour Projets</h2><p>Cet outil est en cours de développement. Revenez bientôt !</p></div>`;
             // attachListenersFunction = attachProjectBudgetListeners; // Quand il sera prêt
             break;
         default:
@@ -75,6 +77,9 @@ function showTool(toolName) {
 
 
     if (typeof attachListenersFunction === 'function') {
+        // S'assurer que le DOM est mis à jour avant d'attacher les listeners
+        // setTimeout peut aider si l'injection HTML prend un micro-temps,
+        // bien que généralement inutile pour de l'innerHTML simple.
         attachListenersFunction();
     }
 }
