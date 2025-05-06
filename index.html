@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer's All-in-One Toolkit</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Freelancer's All-in-One Toolkit</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="event.preventDefault(); showTool('rate-calculator');">Calculateur de Taux</a></li>
+                <li><a href="#" onclick="event.preventDefault(); showTool('tax-estimator');">Estimateur d'Impôts</a></li>
+                <li><a href="#" onclick="event.preventDefault(); showTool('project-budget');">Budget de Projet</a></li>
+                <li><a href="#guides-section">Guides</a></li>
+                <li><a href="#templates-section">Modèles</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>Bienvenue dans votre boîte à outils essentielle pour freelancers !</h2>
+            <p>Simplifiez votre quotidien de freelance avec notre collection d'outils pratiques et de ressources conçus pour vous aider à réussir.</p>
+        </section>
+
+        <section id="tools-overview">
+            <h2>Nos Outils</h2>
+            <div class="tool-card">
+                <img src="assets/calculator-icon.svg" alt="Icône Calculateur" class="tool-icon">
+                <h3>Calculateur de Taux Horaire</h3>
+                <p>Déterminez facilement votre taux horaire idéal en fonction de vos revenus souhaités, dépenses et jours travaillés.</p>
+                <button onclick="showTool('rate-calculator')">Lancer l'outil</button>
+            </div>
+            <div class="tool-card">
+                <img src="assets/tax-icon.svg" alt="Icône Impôts" class="tool-icon">
+                <h3>Estimateur d'Impôts</h3>
+                <p>Estimez vos obligations fiscales (simplifié). Bientôt disponible !</p>
+                <button onclick="showTool('tax-estimator')" disabled>Lancer l'outil</button>
+            </div>
+            <div class="tool-card">
+                 <img src="assets/budget-icon.svg" alt="Icône Budget" class="tool-icon">
+                <h3>Outil de Budgeting pour Projets</h3>
+                <p>Planifiez et suivez les budgets de vos projets. Bientôt disponible !</p>
+                <button onclick="showTool('project-budget')" disabled>Lancer l'outil</button>
+            </div>
+            </section>
+
+        <section id="tool-display-area" style="display:none;">
+            </section>
+
+        <section id="resources">
+            <h2>Ressources Complémentaires</h2>
+            <div class="resource-card" id="guides-section">
+                <h3>Guides et Astuces</h3>
+                <p>Des articles et conseils pour optimiser votre activité de freelance : trouver des clients, négocier, gérer votre temps, etc. (Contenu à venir)</p>
+                <a href="#" class="resource-link">Explorer les guides (bientôt)</a>
+            </div>
+            <div class="resource-card" id="templates-section">
+                <h3>Modèles Pratiques</h3>
+                <p>Accédez à des modèles de factures, de devis, de contrats types pour faciliter votre gestion administrative. (Contenu à venir)</p>
+                <a href="#" class="resource-link">Voir les modèles (bientôt)</a>
+            </div>
+            <div class="resource-card" id="directory-section">
+                <h3>Répertoire d'Outils Externes</h3>
+                <p>Une sélection d'autres outils et plateformes utiles pour les freelancers, avec potentiels liens d'affiliation. (Contenu à venir)</p>
+                <a href="#" class="resource-link">Découvrir le répertoire (bientôt)</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Freelancer's All-in-One Toolkit. Tous droits réservés.</p>
+        <p><a href="#">À propos</a> | <a href="#">Contact</a> | <a href="#">Politique de confidentialité</a></p>
+    </footer>
+
+    <script src="js/rate-calculator.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
